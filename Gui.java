@@ -48,7 +48,7 @@ public class Gui extends JFrame{
 	private JButton[] button = new JButton[buttons.length];
 	String str = "";
 	int ctr = 0;
-	int ctr2 = 0;//, ctr3 = 0;
+	int ctr2 = 0;
 
 	public Gui(){
 		super("A Crazy Calculator");
