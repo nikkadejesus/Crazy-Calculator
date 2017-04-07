@@ -5,17 +5,17 @@ public class Converter{
 	String read = "", parsed = "", written = "";
 	char previousChar = '\0';
 	String previousOperator = "";
-	
+
 	String[] arrayString = new String[20];
 	String[] postfix = new String[20];
 	String[] arrayStack = new String[20];
 	String str = "";
 	int ctr = 0, ctr2 = 0, ctr3 = 0;
-	
+
 	double op1 = 0.0;
 	double op2 = 0.0;
 	double answer = 0.0;
-	
+
 	public void inputToArray(String string){
 		for(int i = 0; i < string.length(); i++){
 			if(string.charAt(i) != ' '){
@@ -28,10 +28,11 @@ public class Converter{
 		if(!str.equals("")){
 			arrayString[ctr++] = str;
 		}
+		infixToPostfix();
 	}
-	
-	public void infixToPostfix(String string){
-		inputToArray(string);
+
+	public void infixToPostfix(){
+		//inputToArray(string);
 		str = "";
 		stack = new Stack(ctr);
 		for(int i = 0; i < ctr; i++){
@@ -98,7 +99,7 @@ public class Converter{
 				}
 			}
 		}
-		
+
 		try{
 			while(!stack.isEmpty()){
 				postfix[ctr2++] = stack.pop();
@@ -106,12 +107,12 @@ public class Converter{
 				arrayStack[ctr3++] = str;
 			}
 		}catch(Exception e){}
-		
+
 		System.out.println();
 		System.out.println("*****Converting Infix to Postfix*****");
 		System.out.println();
 		System.out.println("READ	STACK		PARSED			WRITTEN");
-		
+
 		for(int j = 0; j < 20; j++){
 			if(arrayString[j] != null){
 				parsed += arrayString[j] + " ";
@@ -125,8 +126,8 @@ public class Converter{
 		System.out.println();
 		evaluation();
 	}
-	
-	
+
+
 	public void evaluation(){
 		operand = new Stack(ctr);
 		System.out.println();
@@ -137,14 +138,14 @@ public class Converter{
 			if(isNumber(postfix[i])){
 				operand.push(postfix[i]);
 			}else{
-				
+
 				if(postfix[i].equals("+")){
 					op1 = Double.parseDouble(operand.pop());
 					op2 = Double.parseDouble(operand.pop());
 					answer = op2 + op1;
 				}else if(postfix[i].equals("-")){
 					op1 = Double.parseDouble(operand.pop());
-					op2 = Double.parseDouble(operand.pop());			
+					op2 = Double.parseDouble(operand.pop());
 					answer = op2 - op1;
 				}else if(postfix[i].equals("*")){
 					op1 = Double.parseDouble(operand.pop());
@@ -164,7 +165,7 @@ public class Converter{
 		System.out.println();
 		System.out.println("Answer: " + answer);
 	}
-	
+
 	public boolean isNumber(String string){
 		try{
 			Double.parseDouble(string);

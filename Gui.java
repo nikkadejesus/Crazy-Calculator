@@ -333,7 +333,7 @@ public class Gui extends JFrame{
 					}else if(event.getSource() == button[19]){
 						if(ctr2 == 0){
 							Converter convert = new Converter();
-							convert.infixToPostfix(str);
+							convert.inputToArray(str);
 						}else{
 							label.setText("Math Error!");
 						}
