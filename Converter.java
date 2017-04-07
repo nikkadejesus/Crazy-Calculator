@@ -1,4 +1,4 @@
-public class Converter{
+public class Converter extends Thread{
 
 	Stack stack;
 	Stack operand;
@@ -15,6 +15,26 @@ public class Converter{
 	double op1 = 0.0;
 	double op2 = 0.0;
 	double answer = 0.0;
+
+	//String string;
+
+	/*public Converter(String string){
+		this.string = string;
+
+		Thread con = new Thread();
+		con.start();
+	}
+
+	public void run(){
+		//dapat daw adi an conversion ngan evaluation(?) wa ko'y kagets huhu
+		inputToArray(string);
+		infixToPostfix();
+		evaluation();
+
+		try{
+			Thread.sleep(1500);
+		}catch(Exception e){}
+	}*/
 
 	public void inputToArray(String string){
 		for(int i = 0; i < string.length(); i++){
