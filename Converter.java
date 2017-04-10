@@ -7,6 +7,7 @@ public class Converter extends Thread{
 	String previousOperator = "", previousOperator2 = "";
 
 	String[] arrayString = new String[20];
+	String evaluateString = new String();
 	String[] postfix = new String[20];
 	String[] arrayStack = new String[20];
 	String[] arrayStack2 = new String[20];
@@ -82,7 +83,6 @@ public class Converter extends Thread{
 					}else if(current.equals("(")){
 						postfix[ctr2++] = "";
 						stack.push(current);
-						//Thread.sleep(500);
 						str = stack.display();
 						arrayStack[ctr3++] = str;
 						previousOperator = current;
@@ -168,7 +168,12 @@ public class Converter extends Thread{
 
 	public void evaluation(){
 			int counter = 0;
+			int counter2 = 0;
 			String str2 = "";
+			String str3 = "";
+			String operation1 = "";
+			String operation2 = "";
+			
 			try{
 				operand = new Stack(ctr);
 				System.out.println();
@@ -184,30 +189,56 @@ public class Converter extends Thread{
 
 						if(postfix[i].equals("+")){
 							op1 = Double.parseDouble(operand.pop());
+							//operation1 = "" + op1;
 							arrayStack2[counter--] = "";
 							// Thread.sleep(500);
 							op2 = Double.parseDouble(operand.pop());
+							//operation2 = "" + op2;
 							arrayStack2[counter--] = "";
+							
+							str3 = operation1 + " " + postfix[i] + " " + operation2;
+							//evaluateString[counter2++] = str3;
+							//System.out.println(evaluateString[counter2++]);
 							// Thread.sleep(500);
 							answer = op2 + op1;
 						}else if(postfix[i].equals("-")){
 							op1 = Double.parseDouble(operand.pop());
 							arrayStack2[counter--] = "";
+							//operation1 = "" + op1;
+							
 							op2 = Double.parseDouble(operand.pop());
 							arrayStack2[counter--] = "";
+							//operation2 = "" + op2;
+							
+							//str3 = operation1 + " " + postfix[i] + " " + operation2;
+							//evaluateString[counter2++] = str3;
+							//System.out.println(evaluateString[counter2++]);
 							answer = op2 - op1;
 						}else if(postfix[i].equals("*")){
 							op1 = Double.parseDouble(operand.pop());
 							arrayStack2[counter--] = "";
+							//operation1 = "" + op1;
+							
 							op2 = Double.parseDouble(operand.pop());
 							arrayStack2[counter--] = "";
+							//operation2 = "" + op2;
+							
+							//str3 = operation1 + " " + postfix[i] + " " + operation2;
+							//evaluateString[counter2++] = str3;
+							//System.out.println(evaluateString[counter2++]);
 							answer = op2 * op1;
 						}else if(postfix[i].equals("/")){
 							op1 = Double.parseDouble(operand.pop());
 							arrayStack2[counter--] = "";
+							//operation1 = "" + op1;
+							
 							op2 = Double.parseDouble(operand.pop());
 							arrayStack2[counter--] = "";
-
+							//operation1 = "" + op1;
+							
+							//str3 = operation1 + " " + postfix[i] + " " + operation2;
+							//evaluateString[counter2++] = str3;
+							//System.out.println(evaluateString[counter2++]);
 							if(op1 == 0){
 								Gui.label.setText("Math Error!");
 								break;
@@ -220,14 +251,15 @@ public class Converter extends Thread{
 						operand.push(String.valueOf(answer));
 						str2 += String.valueOf(answer);
 						arrayStack2[counter++] = str2;
+						evaluateString = op1 + " " + " " + postfix[i] + " " + op2;
+						System.out.println(evaluateString);
 					}
 					System.out.println(postfix[i] + "	" + op1 + " " + op2 + "			" + answer + "				        " + answer);
 					Thread.sleep(500);
-					// for(int j = 0; j < 20; j++){
-						Gui.labelEvaluate[0][0].setText(postfix[i]);
-						Thread.sleep(500);
-						Gui.labelEvaluate[1][0].setText(arrayStack2[i]);
-						Thread.sleep(500);
+					Gui.labelEvaluate[0][0].setText(postfix[i]);
+					Thread.sleep(500);
+					Gui.labelEvaluate[1][0].setText(arrayStack2[i]);
+					Thread.sleep(500);
 					// }
 					Gui.labelEvaluate[2][0].setText(arrayStack2[i]);
 					Thread.sleep(500);
@@ -235,10 +267,10 @@ public class Converter extends Thread{
 					Thread.sleep(500);
 					Gui.labelEvaluate[4][0].setText(arrayStack2[i]);
 					Thread.sleep(500);
-					//Gui.labelEvaluate[5][0].setText(arrayStack[j]);
-					//Thread.sleep(500);
-					//Gui.labelEvaluate[6][0].setText(arrayStack[j]);
-					//Thread.sleep(500);
+					Gui.labelEvaluate[5][0].setText(evaluateString);
+					Thread.sleep(500);
+					Gui.labelEvaluate[6][0].setText(String.valueOf(answer));
+					Thread.sleep(500);
 				}
 				System.out.println();
 				System.out.println("Answer: " + answer);
