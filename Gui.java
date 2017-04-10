@@ -383,7 +383,10 @@ public class Gui extends JFrame{
 									str = label.getText();
 							}
 							ctr--;
-						}//end if button[1]
+							
+							labelConvert[2][0].setText("");
+							labelEvaluate[6][0].setText("");
+						}
 
 						if(event.getSource() == button[2]){
 							str = "";
@@ -396,21 +399,9 @@ public class Gui extends JFrame{
 							button[18].setEnabled(false);
 							button[16].setEnabled(true);
 							
-							stackPanel.repaint();
-							parsePanel.repaint();
-							writePanel.repaint();
-							stackPanel.repaint();
-							queue1Panel.repaint();
-							queue2Panel.repaint();
-							arrayPanel.repaint();
-							
-							stackPanel.revalidate();
-							parsePanel.revalidate();
-							writePanel.revalidate();
-							stackPanel.revalidate();
-							queue1Panel.revalidate();
-							queue2Panel.revalidate();
-							arrayPanel.revalidate();
+							labelConvert[2][0].setText("");
+							labelEvaluate[6][0].setText("");
+								
 						}
 
 						if(event.getSource() == button[3]){
