@@ -182,63 +182,45 @@ public class Converter extends Thread{
 				System.out.println("READ	  POP			RESULT					PUSH");
 				for(int i = 0; i < ctr; i++){
 					if(isNumber(postfix[i])){
-						str2 += postfix[i];
-						operand.push(postfix[i]);
-						arrayStack2[counter++] = str2;
+						operand.push(postfix[i] + " ");
+						str2 = operand.display();
+						arrayStack2[counter++] = str2 + " ";
 					}else{
 
 						if(postfix[i].equals("+")){
 							op1 = Double.parseDouble(operand.pop());
-							//operation1 = "" + op1;
-							arrayStack2[counter--] = "";
-							// Thread.sleep(500);
+							str2 = operand.display();
+							arrayStack2[counter++] = str2 + " ";
 							op2 = Double.parseDouble(operand.pop());
-							//operation2 = "" + op2;
-							arrayStack2[counter--] = "";
+							str2 = operand.display();
+							arrayStack2[counter++] = str2 + " ";
 							
 							str3 = operation1 + " " + postfix[i] + " " + operation2;
-							//evaluateString[counter2++] = str3;
-							//System.out.println(evaluateString[counter2++]);
-							// Thread.sleep(500);
 							answer = op2 + op1;
 						}else if(postfix[i].equals("-")){
 							op1 = Double.parseDouble(operand.pop());
-							arrayStack2[counter--] = "";
-							//operation1 = "" + op1;
-							
+							str2 = operand.display();
+							arrayStack2[counter++] = str2 + " ";
 							op2 = Double.parseDouble(operand.pop());
-							arrayStack2[counter--] = "";
-							//operation2 = "" + op2;
-							
-							//str3 = operation1 + " " + postfix[i] + " " + operation2;
-							//evaluateString[counter2++] = str3;
-							//System.out.println(evaluateString[counter2++]);
+							str2 = operand.display();
+							arrayStack2[counter++] = str2 + " ";
 							answer = op2 - op1;
 						}else if(postfix[i].equals("*")){
 							op1 = Double.parseDouble(operand.pop());
-							arrayStack2[counter--] = "";
-							//operation1 = "" + op1;
-							
+							str2 = operand.display();
+							arrayStack2[counter++] = str2 + " ";
 							op2 = Double.parseDouble(operand.pop());
-							arrayStack2[counter--] = "";
-							//operation2 = "" + op2;
-							
-							//str3 = operation1 + " " + postfix[i] + " " + operation2;
-							//evaluateString[counter2++] = str3;
-							//System.out.println(evaluateString[counter2++]);
+							str2 = operand.display();
+							arrayStack2[counter++] = str2 + " ";
 							answer = op2 * op1;
 						}else if(postfix[i].equals("/")){
 							op1 = Double.parseDouble(operand.pop());
-							arrayStack2[counter--] = "";
-							//operation1 = "" + op1;
-							
+							str2 = operand.display();
+							arrayStack2[counter++] = str2 + " ";
 							op2 = Double.parseDouble(operand.pop());
-							arrayStack2[counter--] = "";
-							//operation1 = "" + op1;
+							str2 = operand.display();
+							arrayStack2[counter++] = str2 + " ";
 							
-							//str3 = operation1 + " " + postfix[i] + " " + operation2;
-							//evaluateString[counter2++] = str3;
-							//System.out.println(evaluateString[counter2++]);
 							if(op1 == 0){
 								Gui.label.setText("Math Error!");
 								break;
@@ -249,9 +231,9 @@ public class Converter extends Thread{
 							continue;
 						}
 						operand.push(String.valueOf(answer));
-						str2 += String.valueOf(answer);
-						arrayStack2[counter++] = str2;
-						evaluateString = op1 + " " + " " + postfix[i] + " " + op2;
+						str2 = operand.display();
+						arrayStack2[counter++] = str2 + " ";
+						evaluateString = op2 + " " + " " + postfix[i] + " " + op1;
 						System.out.println(evaluateString);
 					}
 					System.out.println(postfix[i] + "	" + op1 + " " + op2 + "			" + answer + "				        " + answer);
@@ -260,7 +242,6 @@ public class Converter extends Thread{
 					Thread.sleep(500);
 					Gui.labelEvaluate[1][0].setText(arrayStack2[i]);
 					Thread.sleep(500);
-					// }
 					Gui.labelEvaluate[2][0].setText(arrayStack2[i]);
 					Thread.sleep(500);
 					Gui.labelEvaluate[3][0].setText(arrayStack2[i]);
