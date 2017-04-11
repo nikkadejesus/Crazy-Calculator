@@ -58,6 +58,7 @@ public class PseudoArray{
 		while(current != null){
 			str = current.getString();
 			string += str;
+			current.displayLink();
 			current = current.next;
 		}
 		System.out.println("");

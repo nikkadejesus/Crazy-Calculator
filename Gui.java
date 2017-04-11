@@ -22,7 +22,7 @@ public class Gui extends JFrame{
 	public static JPanel queue1Panel;
 	public static JPanel queue2Panel;
 	public static JPanel arrayPanel;
-	
+
 	public static JLabel readL;
 	public static JLabel parseL;
 	public static JLabel writeL;
@@ -30,7 +30,7 @@ public class Gui extends JFrame{
 	public static JLabel queue1L;
 	public static JLabel queue2L;
 	public static JLabel arrayL;
-	
+
 	public static JPanel readP;
 	public static JPanel stackP;
 	public static JPanel queue1P;
@@ -46,11 +46,11 @@ public class Gui extends JFrame{
 	public static JLabel arrayLabel;
 	public static JLabel evaluateL;
 	public static JLabel resultLabel;
-	
+
 	public static JLabel label;
 	public static JLabel convertLabel;
 	public static JLabel evaluateLabel;
-	
+
 	public static JLabel[][] labelConvert = new JLabel[7][15];
 	public static JLabel[][] labelEvaluate = new JLabel[7][15];
 	public JButton[] button = new JButton[buttons.length];
@@ -61,12 +61,12 @@ public class Gui extends JFrame{
 	public Gui(){
 		super("A Crazy Calculator");
 		setLayout(new GridLayout(1,3,3,3));
-		
+
 		//Calculator Panel
 		calcuPanel = new JPanel();
 		calcuPanel.setBackground(Color.BLACK);
 		add(calcuPanel);
-		
+
 		textPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		textPanel.setPreferredSize(new Dimension(320,120));
 		textPanel.setBackground(Color.BLACK);
@@ -116,63 +116,63 @@ public class Gui extends JFrame{
 		for(int i = 12; i < 15; i++){
 			button[i].setBackground(new Color(0, 46, 70));
 		}
-		
+
 		//Convert Panel
 		convertPanel = new JPanel();
 		convertPanel.setBackground(Color.BLACK);
 		add(convertPanel);
-		
+
 		convertTitle = new JPanel();
 		convertTitle.setBackground(Color.BLACK);
 		convertTitle.setPreferredSize(new Dimension(320,120));
 		convertPanel.add(convertTitle);
-		
+
 		convertLabel = new JLabel("INFIX TO POSTFIX",SwingConstants.CENTER);
 		convertLabel.setForeground(Color.WHITE);
 		convertLabel.setFont(new Font("Serif", Font.PLAIN, 30));
 		convertTitle.add(convertLabel);
-		
+
 		panelCovert = new JPanel(new GridLayout(7,1,1,1));
 		panelCovert.setBackground(Color.WHITE);
 		convertPanel.add(panelCovert);
-		
+
 		readPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		readPanel.setBackground(new Color(39, 39, 39));
 		readPanel.setPreferredSize(new Dimension(320,56));
 		panelCovert.add(readPanel);
-		
+
 		readL = new JLabel("READ: ", SwingConstants.LEFT);
 		readL.setFont(new Font("Serif", Font.PLAIN, 20));
 		readL.setForeground(Color.WHITE);
 		readPanel.add(readL);
-		
+
 		parsePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		parsePanel.setBackground(new Color(39, 39, 39));
 		panelCovert.add(parsePanel);
-		
+
 		parseL = new JLabel("PARSE: ", SwingConstants.LEFT);
 		parseL.setFont(new Font("Serif", Font.PLAIN, 20));
 		parseL.setForeground(Color.WHITE);
 		parsePanel.add(parseL);
-		
+
 		writePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		writePanel.setBackground(new Color(39, 39, 39));
 		panelCovert.add(writePanel);
-		
+
 		writeL = new JLabel("WRITTEN: ", SwingConstants.LEFT);
 		writeL.setFont(new Font("Serif", Font.PLAIN, 20));
 		writeL.setForeground(Color.WHITE);
 		writePanel.add(writeL);
-		
+
 		stackPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		stackPanel.setBackground(new Color(39, 39, 39));
 		panelCovert.add(stackPanel);
-		
+
 		stackL = new JLabel("STACK: ", SwingConstants.LEFT);
 		stackL.setFont(new Font("Serif", Font.PLAIN, 20));
 		stackL.setForeground(Color.WHITE);
 		stackPanel.add(stackL);
-		
+
 		queue1Panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		queue1Panel.setBackground(new Color(39, 39, 39));
 		panelCovert.add(queue1Panel);
@@ -181,7 +181,7 @@ public class Gui extends JFrame{
 		queue1L.setFont(new Font("Serif", Font.PLAIN, 20));
 		queue1L.setForeground(Color.WHITE);
 		queue1Panel.add(queue1L);
-		
+
 		queue2Panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		queue2Panel.setBackground(new Color(39, 39, 39));
 		panelCovert.add(queue2Panel);
@@ -236,11 +236,11 @@ public class Gui extends JFrame{
 		queue1P = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		queue1P.setBackground(new Color(39, 39, 39));
 		panelEvaluate.add(queue1P);
-		
+
 		queue2P = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		queue2P.setBackground(new Color(39, 39, 39));
 		panelEvaluate.add(queue2P);
-		
+
 		arrayP = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		arrayP.setBackground(new Color(39, 39, 39));
 		panelEvaluate.add(arrayP);
@@ -254,12 +254,12 @@ public class Gui extends JFrame{
 		queue1Label.setFont(new Font("Serif", Font.PLAIN, 20));
 		queue1Label.setForeground(Color.WHITE);
 		queue1P.add(queue1Label);
-		
+
 		queue2Label = new JLabel("QUEUE 2: ", SwingConstants.LEFT);
 		queue2Label.setFont(new Font("Serif", Font.PLAIN, 20));
 		queue2Label.setForeground(Color.WHITE);
 		queue2P.add(queue2Label);
-		
+
 		arrayLabel = new JLabel("ARRAY: ", SwingConstants.LEFT);
 		arrayLabel.setFont(new Font("Serif", Font.PLAIN, 20));
 		arrayLabel.setForeground(Color.WHITE);
@@ -283,7 +283,7 @@ public class Gui extends JFrame{
 		resultLabel.setForeground(Color.WHITE);
 		resultP.add(resultLabel);
 
-		
+
 		for(int i = 0; i < 7; i++){
 			for(int j = 0; j < 15; j++){
 				labelConvert[i][j] = new JLabel();
@@ -303,10 +303,10 @@ public class Gui extends JFrame{
 					queue2Panel.add(labelConvert[5][j]);
 				}else if(i == 6){
 					arrayPanel.add(labelConvert[6][j]);
-				}			
+				}
 			}
 		}
-		
+
 		for(int i = 0; i < 7; i++){
 			for(int j = 0; j < 15; j++){
 				labelEvaluate[i][j] = new JLabel();
@@ -326,7 +326,7 @@ public class Gui extends JFrame{
 					evaluateP.add(labelEvaluate[5][j]);
 				}else if(i == 6){
 					resultP.add(labelEvaluate[6][j]);
-				}			
+				}
 			}
 		}
 	}
@@ -355,8 +355,6 @@ public class Gui extends JFrame{
 									 label.setText(label.getText().substring(0, label.getText().length()-1));
 										str = label.getText();
 										label.setText(str);
-
-
 										ctr2--;
 								}else{
 									for(int j = 0; j < 2; j++){
@@ -383,7 +381,7 @@ public class Gui extends JFrame{
 									str = label.getText();
 							}
 							ctr--;
-							
+
 							labelConvert[2][0].setText("");
 							labelEvaluate[6][0].setText("");
 						}
@@ -398,10 +396,10 @@ public class Gui extends JFrame{
 							}
 							button[18].setEnabled(false);
 							button[16].setEnabled(true);
-							
+
 							labelConvert[2][0].setText("");
 							labelEvaluate[6][0].setText("");
-								
+
 						}
 
 						if(event.getSource() == button[3]){
@@ -476,7 +474,11 @@ public class Gui extends JFrame{
 						}
 
 						button[16].setEnabled(false);
-						button[18].setEnabled(false);
+						if(str == ""){
+							button[18].setEnabled(false);
+						}else{
+							button[18].setEnabled(true);
+						}
 
 						if(ctr < 15){
 							str += buttons[i];
